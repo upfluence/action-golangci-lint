@@ -1,0 +1,14 @@
+name: 'Run golangci-lint with reviewdog'
+description: 'Lint go linter for upfluence repo.'
+author: 'Thomas ISAAC (upfluence)'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+    default: ${{ github.token }}
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'check-circle'
+  color: 'blue'
