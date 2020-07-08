@@ -6,7 +6,7 @@ If code can work with old configuration, use same tag as before
 If your code include breaking change change label and inform all Upfluence team about your changes.
 
 
-## Add this acton to your ruby project
+## Add this acton to your go project
 run command into your project directory
 ```bash
 mkdir -p .github/workflows
