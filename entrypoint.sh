@@ -8,7 +8,7 @@ export FAILED_ON_ERROR=true
 export LEVEL=error
 export REPORTER=github-pr-review
 
-golangci-lint run --timeout 10m --out-format line-number --enable-all --disable wsl,gochecknoglobals,lll \
+golangci-lint run --modules-download-mode vendor --timeout 10m --out-format line-number --enable-all --disable wsl,gochecknoglobals,lll \
   | reviewdog -f=golangci-lint \
       -name="golangci-linter" \
       -reporter="${REPORTER}" \
