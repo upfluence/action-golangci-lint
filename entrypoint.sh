@@ -7,8 +7,13 @@ export FILTER_MODE=added
 export FAILED_ON_ERROR=true
 export LEVEL=error
 export REPORTER=github-pr-review
+export MODULE_DOWNLOAD_MODE=""
 
-golangci-lint run --timeout 10m --out-format line-number --enable-all --disable wsl,gochecknoglobals,lll \
+if [ -n "$INPUT_MODULE_DOWNLOAD_MODE" ]; then
+    export MODULE_DOWNLOAD_MODE="--modules-download-mode ${INPUT_MODULE_DOWNLOAD_MODE}"
+fi
+
+golangci-lint run ${MODULE_DOWNLOAD_MODE} --timeout 10m --out-format line-number --enable-all --disable wsl,gochecknoglobals,lll \
   | reviewdog -f=golangci-lint \
       -name="golangci-linter" \
       -reporter="${REPORTER}" \

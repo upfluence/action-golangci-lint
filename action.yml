@@ -6,6 +6,9 @@ inputs:
     description: 'GITHUB_TOKEN.'
     required: true
     default: ${{ github.token }}
+  module_download_mode:
+    description: '-mod=<mode> value'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
