@@ -13,7 +13,7 @@ if [ -n "$INPUT_MODULE_DOWNLOAD_MODE" ]; then
     export MODULE_DOWNLOAD_MODE="--modules-download-mode ${INPUT_MODULE_DOWNLOAD_MODE}"
 fi
 
-golangci-lint run ${MODULE_DOWNLOAD_MODE} --timeout 10m --out-format line-number --enable-all --disable wsl,gochecknoglobals,lll \
+golangci-lint run ${MODULE_DOWNLOAD_MODE} --timeout 10m --out-format line-number --enable-all --disable wsl,gochecknoglobals,lll,scopelint,gomnd \
   | reviewdog -f=golangci-lint \
       -name="golangci-linter" \
       -reporter="${REPORTER}" \
