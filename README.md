@@ -24,7 +24,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v1
       - name: golangci
-        uses: upfluence/action-golangci-lint@v1
+        uses: upfluence/action-golangci-lint@master
         with:
           github_token: ${{ secrets.github_token }}
 ```
