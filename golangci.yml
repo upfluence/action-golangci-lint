@@ -1,0 +1,29 @@
+run:
+  timeout: 10m
+  tests: true
+  skip-files:
+    - ".*/bindata.go$"
+  modules-download-mode: readonly
+output:
+  format: line-number
+linters:
+  enable-all: true
+  disable:
+    - wsl
+    - gochecknoglobals
+    - lll
+    - scopelint
+    - gomnd
+    - funlen
+    - testpackage
+    - goerr113
+    - wrapcheck
+    - thelper
+    - paralleltest
+    - exhaustivestruct
+    - nlreturn
+    - exhaustive
+    - errorlint
+    - stylecheck
+    - forbidigo
+    - dupl
