@@ -13,7 +13,7 @@ if [ -n "$INPUT_MODULE_DOWNLOAD_MODE" ]; then
     export MODULE_DOWNLOAD_MODE="--modules-download-mode ${INPUT_MODULE_DOWNLOAD_MODE}"
 fi
 
-golangci-lint run -c /golangci.yml "${MODULE_DOWNLOAD_MODE}" | reviewdog \
+golangci-lint run -c /golangci.yml ${MODULE_DOWNLOAD_MODE} | reviewdog \
   -f=golangci-lint \
   -name="golangci-linter" \
   -reporter="${REPORTER}" \
