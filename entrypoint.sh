@@ -8,10 +8,10 @@ export FAIL_ON_ERROR=true
 export LEVEL=error
 export REPORTER=github-pr-review
 
-golangci-lint run -c /golangci.yml
-  | reviewdog -f=golangci-lint \
-      -name="golangci-linter" \
-      -reporter="${REPORTER}" \
-      -filter-mode="${FILTER_MODE}" \
-      -fail-on-error="${FAIL_ON_ERROR}" \
-      -level="${LEVEL}"
+golangci-lint run -c /golangci.yml | reviewdog \
+  -f=golangci-lint \
+  -name="golangci-linter" \
+  -reporter="${REPORTER}" \
+  -filter-mode="${FILTER_MODE}" \
+  -fail-on-error="${FAIL_ON_ERROR}" \
+  -level="${LEVEL}"
