@@ -3,7 +3,6 @@ run:
   tests: true
   skip-files:
     - ".*/bindata.go$"
-  modules-download-mode: vendor
 output:
   format: line-number
 linters:
