@@ -3,8 +3,6 @@ run:
   tests: true
   skip-files:
     - ".*/bindata.go$"
-output:
-  format: line-number
 linters:
   enable-all: true
   disable:
@@ -26,3 +24,8 @@ linters:
     - stylecheck
     - forbidigo
     - dupl
+    - exhaustruct
+    - nosnakecase
+    - tagliatelle
+    - varnamelen
+    - ireturn

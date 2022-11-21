@@ -10,8 +10,13 @@ inputs:
     description: '-mod=<mode> value'
     required: false
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'composite'
+  steps:
+    - name: golanci-lint
+      uses: golangci/golangci-lint-action@v3
+      with:
+        version: v1.50
+        args: -c ${{ github.action_path }}/.golangci.yml
 branding:
   icon: 'check-circle'
   color: 'blue'
