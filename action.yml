@@ -17,6 +17,8 @@ runs:
       with:
         version: v1.50
         args: -c ${{ github.action_path }}/.golangci.yml
+        only-new-issues: true
+
 branding:
   icon: 'check-circle'
   color: 'blue'
