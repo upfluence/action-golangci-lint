@@ -28,6 +28,7 @@ linters:
     - tagliatelle
     - varnamelen
     - ireturn
+    - typecheck
 
 linters-settings:
   wsl:
