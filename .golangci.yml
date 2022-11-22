@@ -4,37 +4,46 @@ run:
   skip-files:
     - ".*/bindata.go$"
 linters:
-  enable-all: true
-  disable:
-    - gochecknoglobals
-    - lll
-    - scopelint
-    - gomnd
-    - funlen
-    - testpackage
-    - goerr113
-    - wrapcheck
-    - thelper
-    - paralleltest
-    - exhaustivestruct
-    - nlreturn
-    - exhaustive
-    - errorlint
-    - stylecheck
-    - forbidigo
+  enable:
+    - cyclop
+    - decorder
     - dupl
-    - exhaustruct
-    - nosnakecase
-    - tagliatelle
-    - varnamelen
-    - ireturn
-    - typecheck
-    - gomoddirectives
+    - errname
+    - errorlint
+    - execinquery
+    - exportloopref
+    - forbidigo
+    # - forcetypeassert
+    - funlen
+    - goconst
+    - gocritic
+    - gocyclo
+    - godot
+    - gofmt
+    - goimports
+    - gosec
+    - misspell
+    - nestif
+    - nilnil
+    - noctx
+    - prealloc
+    - promlinter
+    - reassign
+    - revive
+    - unconvert
+    - unparam
+    - wastedassign
+    - whitespace
+    - wrapcheck
+    - wsl
+
+  disable:
+    - golint # as we enabled revive
 
 linters-settings:
   wsl:
     # If true append is only allowed to be cuddled if appending value is
-    # matching variables, fields or types on line above. Default is true.
+    # matching variables, fields or types one line above. Default is true.
     strict-append: true
     # Allow calls and assignments to be cuddled as long as the lines have any
     # matching variables, fields or types. Default is true.
@@ -48,5 +57,53 @@ linters-settings:
     # Force newlines in end of case at this limit (0 = never).
     force-case-trailing-whitespace: 0
 
+  funlen:
+    lines: 120
+    statements: 80
+
+  wrapcheck:
+    ignoreSigs:
+      - .Errorf(
+      - errors.New(
+      - errors.Unwrap(
+      - .Wrap(
+      - .Wrapf(
+      - .WithMessage(
+      - .WithMessagef(
+      - .WithStack(
+      - .WithTags(
+      - .Combine(
+
+    ignorePackageGlobs:
+      - "github.com/upfluence/*"
+      - "encoding/*"
+      - "gopkg.in/yaml.v2*"
+
 issues:
   new: true
+
+  # Excluding configuration per-path, per-linter, per-text and per-source
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+        - lll
+        - funlen
+        - nilnil
+    - path: testing.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+        - lll
+        - funlen
+        - nilnil
+
+    - linters:
+        - lll
+      source: "^func"
