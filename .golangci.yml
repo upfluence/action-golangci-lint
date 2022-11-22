@@ -107,3 +107,8 @@ issues:
     - linters:
         - lll
       source: "^func"
+
+    # Exclude wannabe compiler
+    - path: /
+      linters:
+        - typecheck
