@@ -15,7 +15,7 @@ runs:
     - name: golanci-lint
       uses: golangci/golangci-lint-action@v3
       with:
-        version: v1.50
+        version: v1.51.2
         args: -c ${{ github.action_path }}/.golangci.yml
         only-new-issues: true
 
