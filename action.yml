@@ -1,6 +1,6 @@
-name: 'Run golangci-lint with reviewdog'
+name: 'Run golangci-lint'
 description: 'Lint go linter for upfluence repo.'
-author: 'Thomas ISAAC (upfluence)'
+author: 'Karim Assaly (upfluence)'
 inputs:
   github_token:
     description: 'GITHUB_TOKEN.'
@@ -15,7 +15,7 @@ runs:
     - name: golanci-lint
       uses: golangci/golangci-lint-action@v3
       with:
-        version: v1.51.2
+        version: v1.53.3
         args: -c ${{ github.action_path }}/.golangci.yml
         only-new-issues: true
 
