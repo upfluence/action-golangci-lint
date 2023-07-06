@@ -75,7 +75,6 @@ linters-settings:
       - .Combine(
 
     ignorePackageGlobs:
-      - "github.com/upfluence/*"
       - "encoding/*"
       - "gopkg.in/yaml.v2*"
 
