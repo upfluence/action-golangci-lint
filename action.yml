@@ -22,10 +22,13 @@ runs:
         go-version: ${{ inputs.go-version }}
     - name: install golanci-lint
       run: curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.53.3
+      shell: bash
     - name: golangci-lint version
       run: golangci-lint --version
+      shell: bash
     - name: trigger golangci-lint
       run: golangci-lint run
+      shell: bash
 
 branding:
   icon: 'check-circle'
