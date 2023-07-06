@@ -17,10 +17,9 @@ runs:
   using: 'composite'
   steps:
     - name: Install Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ inputs.go-version }}
-        cache: false
     - name: golanci-lint
       uses: golangci/golangci-lint-action@v3
       with:
