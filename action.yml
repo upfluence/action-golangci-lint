@@ -20,12 +20,12 @@ runs:
       uses: actions/setup-go@v3
       with:
         go-version: ${{ inputs.go-version }}
-    - name: golanci-lint
-      uses: golangci/golangci-lint-action@v3
-      with:
-        version: v1.53.3
-        args: -c ${{ github.action_path }}/.golangci.yml
-        only-new-issues: true
+    - name: install golanci-lint
+      run: curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.53.3
+    - name: golangci-lint version
+      run: golangci-lint --version
+    - name: trigger golangci-lint
+      run: golangci-lint run
 
 branding:
   icon: 'check-circle'
