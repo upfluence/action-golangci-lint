@@ -13,12 +13,11 @@ runs:
   using: 'composite'
   steps:
     - name: golanci-lint
-      uses: golangci/golangci-lint-action@v3
+      uses: reviewdog/golangci-lint-action@v2
       with:
-        version: v1.53.3
-        args: -c ${{ github.action_path }}/.golangci.yml
-        only-new-issues: true
-        skip-cache: true
+        github_token: ${{ inputs.github_token }}
+        golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml"
+        cache: false 
 
 branding:
   icon: 'check-circle'
