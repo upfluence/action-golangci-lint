@@ -13,7 +13,7 @@ runs:
   using: 'composite'
   steps:
     - name: golanci-lint
-      uses: reviewdog/golangci-lint-action@v2
+      uses: reviewdog/action-golangci-lint@v2
       with:
         github_token: ${{ inputs.github_token }}
         golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml"
