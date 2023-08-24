@@ -18,6 +18,8 @@ runs:
         github_token: ${{ inputs.github_token }}
         golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml"
         cache: false 
+        reporter: github-pr-review
+        fail_on_error: true
 
 branding:
   icon: 'check-circle'
