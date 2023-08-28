@@ -9,16 +9,22 @@ inputs:
   module_download_mode:
     description: '-mod=<mode> value'
     required: false
+  go-version:
+    description: 'go version'
+    required: false
+    default: '1.21.x'
 runs:
   using: 'composite'
   steps:
     - name: golanci-lint
-      uses: golangci/golangci-lint-action@v3
+      uses: reviewdog/action-golangci-lint@v2
       with:
-        version: v1.53.3
-        args: -c ${{ github.action_path }}/.golangci.yml
-        only-new-issues: true
-        skip-cache: true
+        github_token: ${{ inputs.github_token }}
+        golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml"
+        cache: false 
+        reporter: github-pr-review
+        fail_on_error: true
+        go_version: ${{ inputs.go-version }}
 
 branding:
   icon: 'check-circle'
