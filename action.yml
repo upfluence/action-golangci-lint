@@ -20,11 +20,12 @@ runs:
       uses: reviewdog/action-golangci-lint@v2
       with:
         github_token: ${{ inputs.github_token }}
-        golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml"
+        golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml --new"
         cache: false 
         reporter: github-pr-review
         fail_on_error: true
         go_version: ${{ inputs.go-version }}
+        filter_mode: added
 
 branding:
   icon: 'check-circle'
