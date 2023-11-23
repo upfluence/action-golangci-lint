@@ -25,6 +25,8 @@ runs:
         filter_mode: added
     - name: staticcheck
       uses: dominikh/staticcheck-action@v1.3.0
+      with:
+        min-go-version: ${{ inputs.go-version }}
 
 branding:
   icon: 'check-circle'
