@@ -27,9 +27,6 @@ runs:
       uses: dominikh/staticcheck-action@v1.3.0
       with:
         min-go-version: ${{ inputs.go-version }}
-      env:
-        OKTA_CLIENT_SECRET: ${{ secrets.OKTA_CLIENT_SECRET }}
-        OKTA_CLIENT_ID: ${{ secrets.OKTA_CLIENT_ID }}
 
 branding:
   icon: 'check-circle'
