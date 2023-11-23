@@ -5,6 +5,7 @@ run:
     - ".*/bindata.go$"
 linters:
   enable:
+    - bodyclose
     - cyclop
     - decorder
     - dupl
@@ -13,23 +14,29 @@ linters:
     - execinquery
     - exportloopref
     - forbidigo
-    # - forcetypeassert
     - funlen
+    - gocheckcompilerdirectives
     - goconst
     - gocritic
     - gocyclo
-    - godot
-    - gofmt
+    - godox
+    - gofumpt
     - goimports
     - gosec
     - misspell
+    - musttag
     - nestif
     - nilnil
+    - nlreturn
     - noctx
+    - nonamedreturns
     - prealloc
     - promlinter
     - reassign
     - revive
+    - tagalign
+    - testifylint
+    - thelper
     - unconvert
     - unparam
     - wastedassign
@@ -38,6 +45,8 @@ linters:
     - wsl
 
   disable:
+    - godot
+    - gofmt # as we have gofumpt
     - golint # as we enabled revive
 
 linters-settings:
@@ -80,6 +89,9 @@ linters-settings:
 
 issues:
   new: true
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  fix: false
 
   # Excluding configuration per-path, per-linter, per-text and per-source
   exclude-rules:
