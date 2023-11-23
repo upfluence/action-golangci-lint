@@ -26,6 +26,7 @@ runs:
     - name: staticcheck
       uses: dominikh/staticcheck-action@v1.3.0
       with:
+        install-go: false
         min-go-version: ${{ inputs.go-version }}
 
 branding:
