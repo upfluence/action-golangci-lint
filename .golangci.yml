@@ -20,7 +20,7 @@ linters:
     - gocritic
     - gocyclo
     - godox
-    - gofumpt
+    - gofmt
     - goimports
     - gosec
     - misspell
@@ -36,7 +36,6 @@ linters:
     - revive
     - tagalign
     - testifylint
-    - thelper
     - unconvert
     - unparam
     - wastedassign
@@ -46,7 +45,7 @@ linters:
 
   disable:
     - godot
-    - gofmt # as we have gofumpt
+    - gofumpt # as we have gofmt
     - golint # as we enabled revive
 
 linters-settings:
