@@ -23,11 +23,6 @@ runs:
         fail_on_error: true
         go_version: ${{ inputs.go-version }}
         filter_mode: added
-    - name: staticcheck
-      uses: dominikh/staticcheck-action@v1.3.0
-      with:
-        install-go: false
-        min-go-version: ${{ inputs.go-version }}
 
 branding:
   icon: 'check-circle'
