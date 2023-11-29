@@ -87,7 +87,6 @@ linters-settings:
 
   cyclop:
     max-complexity: 15
-    skip-tests: true
 
 issues:
   new: true
