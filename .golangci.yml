@@ -85,6 +85,10 @@ linters-settings:
       - "encoding/*"
       - "gopkg.in/yaml.v2*"
 
+  cyclop:
+    max-complexity: 15
+    skip-tests: true
+
 issues:
   new: true
   max-issues-per-linter: 0
