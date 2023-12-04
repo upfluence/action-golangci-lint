@@ -106,6 +106,7 @@ issues:
         - lll
         - funlen
         - nilnil
+        - noctx
     - path: testing.go
       linters:
         - gocyclo
@@ -115,6 +116,7 @@ issues:
         - lll
         - funlen
         - nilnil
+        - noctx
 
     - linters:
         - lll
