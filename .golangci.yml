@@ -45,7 +45,7 @@ linters:
     - godot
     - gofumpt # as we have gofmt
     - golint # as we enabled revive
-    - gocyclo 
+    - gocyclo
 
 linters-settings:
   wsl:
@@ -80,6 +80,7 @@ linters-settings:
       - .WithStack(
       - .WithTags(
       - .Combine(
+      - .Join(
 
     ignorePackageGlobs:
       - "encoding/*"
