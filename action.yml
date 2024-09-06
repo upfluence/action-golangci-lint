@@ -9,7 +9,7 @@ inputs:
   go-version:
     description: 'go version'
     required: false
-    default: '1.23.x'
+    default: '1.22.x'
 runs:
   using: 'composite'
   steps:
