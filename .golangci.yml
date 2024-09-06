@@ -42,7 +42,6 @@ linters:
     - godot
     - gofumpt # as we have gofmt
     - gocyclo
-    - typecheck
 
 linters-settings:
   wsl:
