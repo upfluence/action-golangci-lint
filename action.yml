@@ -16,7 +16,7 @@ runs:
     - name: golanci-lint
       uses: reviewdog/action-golangci-lint@v2
       with:
-        golangci_lint_version: 1.64.8 # pin golangci-lint version while v2 migration is pending
+        golangci_lint_version: 'v1.64.8' # pin golangci-lint version while v2 migration is pending
         github_token: ${{ inputs.github_token }}
         golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml --new"
         cache: false 
