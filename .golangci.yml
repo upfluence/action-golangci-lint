@@ -82,6 +82,9 @@ linters-settings:
       - "encoding/*"
       - "gopkg.in/yaml.v2*"
 
+    ignoreSigRegexps:
+      - .*\.Wrap\w+Error\(
+
   cyclop:
     max-complexity: 15
 
