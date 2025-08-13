@@ -107,6 +107,7 @@ issues:
         - funlen
         - nilnil
         - noctx
+        - wrapcheck
     - path: testing.go
       linters:
         - gocyclo
@@ -117,6 +118,7 @@ issues:
         - funlen
         - nilnil
         - noctx
+        - wrapcheck
 
     - linters:
         - lll
