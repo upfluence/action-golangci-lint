@@ -18,7 +18,7 @@ runs:
       with:
         golangci_lint_version: 'v2.5.0'
         github_token: ${{ inputs.github_token }}
-        golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml --new"
+        golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml --new --path-mode=abs"
         cache: false 
         reporter: github-pr-review
         fail_level: 'any'
