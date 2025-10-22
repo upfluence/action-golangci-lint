@@ -70,6 +70,13 @@ linters:
       branch-max-lines: 2
       disable:
         - err
+    misspell:
+      ignore-rules:
+        - publishr
+        - timeserie
+        - ubiquituous
+        - criterias
+        - missbehaving
   exclusions:
     generated: lax
     presets:
