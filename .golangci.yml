@@ -1,3 +1,4 @@
+version: "2"
 run:
   timeout: 10m
   tests: true
@@ -16,8 +17,6 @@ linters:
     - goconst
     - gocritic
     - godox
-    - gofmt
-    - goimports
     - gosec
     - misspell
     - musttag
@@ -37,96 +36,89 @@ linters:
     - wastedassign
     - whitespace
     - wrapcheck
-    - wsl
+    - wsl_v5
   disable:
     - godot
-    - gofumpt # as we have gofmt
     - gocyclo
-
-linters-settings:
-  wsl:
-    # If true append is only allowed to be cuddled if appending value is
-    # matching variables, fields or types one line above. Default is true.
-    strict-append: true
-    # Allow calls and assignments to be cuddled as long as the lines have any
-    # matching variables, fields or types. Default is true.
-    allow-assign-and-call: true
-    # Allow multiline assignments to be cuddled. Default is true.
-    allow-multiline-assign: true
-    # Allow declarations (var) to be cuddled.
-    allow-cuddle-declarations: false
-    # Allow trailing comments in ending of blocks
-    allow-trailing-comment: false
-    # Force newlines in end of case at this limit (0 = never).
-    force-case-trailing-whitespace: 0
-
-  funlen:
-    lines: 120
-    statements: 80
-
-  wrapcheck:
-    ignoreSigs:
-      - .Errorf(
-      - errors.New(
-      - errors.Unwrap(
-      - .Wrap(
-      - .Wrapf(
-      - .WithMessage(
-      - .WithMessagef(
-      - .WithStack(
-      - .WithTags(
-      - .Combine(
-      - .Join(
-
-    ignorePackageGlobs:
-      - "encoding/*"
-      - "gopkg.in/yaml.v2*"
-
-    ignoreSigRegexps:
-      - .*\.Wrap\w+Error\(
-
-  cyclop:
-    max-complexity: 15
+  settings:
+    funlen:
+      lines: 120
+      statements: 80
+    wrapcheck:
+      ignore-sigs:
+        - .Errorf(
+        - errors.New(
+        - errors.Unwrap(
+        - .Wrap(
+        - .Wrapf(
+        - .WithMessage(
+        - .WithMessagef(
+        - .WithStack(
+        - .WithTags(
+        - .Combine(
+        - .Join(
+      ignore-package-globs:
+        - "encoding/*"
+        - "gopkg.in/yaml.v2*"
+      ignore-sig-regexps:
+        - .*\.Wrap\w+Error\(
+    cyclop:
+      max-complexity: 15
+    wsl_v5:
+      allow-first-in-block: true
+      allow-whole-block: false
+      branch-max-lines: 2
+      disable:
+        - err
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - linters:
+          - dupl
+          - errcheck
+          - funlen
+          - gocyclo
+          - gosec
+          - lll
+          - nilnil
+          - noctx
+        path: _test\.go
+      - linters:
+          - dupl
+          - errcheck
+          - funlen
+          - gocyclo
+          - gosec
+          - lll
+          - nilnil
+          - noctx
+        path: testing.go
+      - linters:
+          - lll
+        source: ^func
+    paths:
+      - .*/bindata.go$
+      - third_party$
+      - builtin$
+      - examples$
 
 issues:
-  new: true
   max-issues-per-linter: 0
   max-same-issues: 0
   fix: false
-
-  # Excluding configuration per-path, per-linter, per-text and per-source
-  exclude-rules:
-    # Exclude some linters from running on tests files.
-    - path: _test\.go
-      linters:
-        - gocyclo
-        - errcheck
-        - dupl
-        - gosec
-        - lll
-        - funlen
-        - nilnil
-        - noctx
-        - wrapcheck
-    - path: testing.go
-      linters:
-        - gocyclo
-        - errcheck
-        - dupl
-        - gosec
-        - lll
-        - funlen
-        - nilnil
-        - noctx
-        - wrapcheck
-
-    - linters:
-        - lll
-      source: "^func"
-
-    # Exclude wannabe compiler
-    - path: /
-      linters:
-        - typecheck
-  exclude-files:
-    - ".*/bindata.go$"
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - .*/bindata.go$
+      - third_party$
+      - builtin$
+      - examples$
