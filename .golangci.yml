@@ -5,12 +5,13 @@ run:
 linters:
   enable:
     - bodyclose
+    - copyloopvar
     - cyclop
     - decorder
+    - depguard
     - dupl
     - errname
     - errorlint
-    - copyloopvar
     - forbidigo
     - funlen
     - gocheckcompilerdirectives
@@ -40,6 +41,12 @@ linters:
     - godot
     - gocyclo
   settings:
+    depguard:
+      rules:
+        main:
+          deny:
+            - pkg: github.com/pkg/errors
+              desc: use github.com/upfluence/errors
     funlen:
       lines: 120
       statements: 80
