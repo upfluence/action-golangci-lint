@@ -20,6 +20,7 @@ linters:
     - godox
     - gosec
     - misspell
+    - modernize
     - musttag
     - nestif
     - nilnil
