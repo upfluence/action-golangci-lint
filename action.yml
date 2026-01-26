@@ -16,7 +16,7 @@ runs:
     - name: golanci-lint
       uses: reviewdog/action-golangci-lint@v2
       with:
-        golangci_lint_version: 'v2.5.0'
+        golangci_lint_version: 'v2.8.0'
         github_token: ${{ inputs.github_token }}
         golangci_lint_flags: "-c ${{ github.action_path }}/.golangci.yml --new --path-mode=abs"
         cache: false 
