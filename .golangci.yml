@@ -42,6 +42,8 @@ linters:
     - godot
     - gocyclo
   settings:
+    goconst:
+      ignore-tests: true
     depguard:
       rules:
         main:
